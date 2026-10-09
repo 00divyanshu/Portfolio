@@ -51,3 +51,22 @@ A responsive freeform terminal delivers maximum interactivity and technical impr
 
 ### Consequences
 Requires maintaining client-side command parsing and clean mobile fallbacks for the interactive terminal and animated SVGs.
+
+---
+
+## [DECISION-004] Phase 4 Conversion Architecture — API Route Form & In-Page Calendly Modal
+
+**Date**: 2026-10-09
+**Status**: Accepted
+
+### Context
+Phase 4 handles the direct conversion channels: receiving client inquiries and booking 20-minute discovery calls.
+
+### Decision
+1. **Direct Inquiry Form:** Implement Option A — A Next.js API route (`/api/contact`) supporting structured form submission, input validation, email alert dispatch (with graceful fallback), and rich user feedback.
+2. **Calendly Integration:** Implement Option A — In-page accessible modal popup with responsive iframe embedding and dark-themed overlay.
+3. **Social Links:** Parameterized placeholders (`#`) to be easily updated with real URLs by the user later.
+4. **Metadata & SEO:** Configure Next.js metadata with OpenGraph and Twitter card tags centered on enterprise AI systems and high-ticket freelance consulting.
+
+### Rationale
+An in-page modal keeps high-intent leads on the portfolio without tab bouncing. An API route ensures enterprise-grade validation and reliable message delivery.
