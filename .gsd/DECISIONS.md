@@ -31,3 +31,23 @@ Use Next.js 14 App Router, TypeScript, Tailwind CSS, and Lucide Icons.
 
 ### Rationale
 Industry standard, fast SSR/static optimization, minimal bundle overhead, seamless deployment on Vercel or modern edge hosts.
+
+---
+
+## [DECISION-003] Phase 3 Interactive Elements — Freeform Terminal & Animated Dataflow
+
+**Date**: 2026-10-09
+**Status**: Accepted
+
+### Context
+Phase 3 requires an interactive terminal and architectural visualizer to prove technical rigor and create an engaging demo for prospective clients and technical recruiters.
+
+### Decision
+1. **Interactive Terminal Widget:** Implement a freeform pseudo-shell (Option B) supporting commands like `help`, `query`, `eval`, `status`, `test`, and `clear` with stateful command history and realistic simulated streaming responses.
+2. **Architecture Visualizer:** Implement an animated dataflow visualization (Option B) featuring packet transit animations across the 4 stages (Client Ingestion -> Cyber Gateway -> Dual Vector Engine -> Relational Audit) with live telemetry pulse indicators.
+
+### Rationale
+A responsive freeform terminal delivers maximum interactivity and technical impression, letting visitors test the simulated CLI engine hands-on. The animated SVG/CSS dataflow immediately communicates real-time throughput (~300 tok/s) and cyber defense filtering visually.
+
+### Consequences
+Requires maintaining client-side command parsing and clean mobile fallbacks for the interactive terminal and animated SVGs.
