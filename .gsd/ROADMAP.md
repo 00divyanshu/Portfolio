@@ -6,7 +6,7 @@ updated: 2026-10-09T17:22:00Z
 
 # Roadmap — Divyansh Sharma Portfolio
 
-> **Current Phase:** Phase 2 - Client Solutions, Skills Matrix & Trust Vault
+> **Current Phase:** Phase 3 - Interactive Demos, Architecture Visualizer & Terminal Widget
 > **Status:** 🔄 Planning Complete (Ready for Execution)
 
 ## Must-Haves (from SPEC)
@@ -46,13 +46,13 @@ updated: 2026-10-09T17:22:00Z
 ---
 
 ### Phase 3: Interactive Demos, Architecture Visualizer & Terminal Widget
-**Status:** ⬜ Not Started
+**Status:** 🔄 Planning Complete
 **Objective:** Build interactive elements including the live CLI terminal demo component, RAG telemetry simulator, and architecture diagram flow.
 **Depends on:** Phase 2
 
 **Plans:**
-- [ ] Plan 3.1: Interactive CLI Terminal Component
-- [ ] Plan 3.2: Architecture Flow Diagram & Telemetry Simulator
+- [ ] Plan 3.1: Interactive CLI Terminal Component (`TerminalSimulator.tsx`)
+- [ ] Plan 3.2: Architecture Flow Diagram & Telemetry Simulator (`ArchitectureFlow.tsx`)
 
 ---
 
