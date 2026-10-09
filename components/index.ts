@@ -7,3 +7,4 @@ export * from "./TrustVault";
 export * from "./ContactFooter";
 export * from "./TerminalSimulator";
 export * from "./ArchitectureFlow";
+export * from "./CalendlyModal";
