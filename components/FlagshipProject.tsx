@@ -16,6 +16,8 @@ import {
   Copy,
   Check
 } from "lucide-react";
+import TerminalSimulator from "./TerminalSimulator";
+import ArchitectureFlow from "./ArchitectureFlow";
 
 export interface FlagshipProjectProps {
   githubUrl?: string;
@@ -163,6 +165,9 @@ python -m rag_engine.cli --tenant user_enterprise_01 --query "Q4 cloud risk audi
         {/* Tab 1: Architecture Pipeline */}
         {activeTab === "architecture" && (
           <div className="space-y-8">
+            {/* Animated SVG Dataflow Visualizer */}
+            <ArchitectureFlow />
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               
               {/* Layer 1: Ingestion */}
@@ -337,23 +342,29 @@ python -m rag_engine.cli --tenant user_enterprise_01 --query "Q4 cloud risk audi
 
         {/* Tab 3: CLI & Verification Terminal */}
         {activeTab === "cli" && (
-          <div className="rounded-2xl bg-zinc-900/90 border border-zinc-800 overflow-hidden font-mono text-xs">
-            <div className="flex items-center justify-between px-4 py-3 bg-zinc-950 border-b border-zinc-800">
-              <div className="flex items-center gap-2 text-zinc-400">
-                <Terminal className="w-4 h-4 text-cyan-400" />
-                <span>terminal_verification.sh</span>
+          <div className="space-y-6">
+            {/* Live Interactive Terminal Simulator */}
+            <TerminalSimulator />
+
+            {/* Scripted Shell Snippet Reference */}
+            <div className="rounded-2xl bg-zinc-900/90 border border-zinc-800 overflow-hidden font-mono text-xs">
+              <div className="flex items-center justify-between px-4 py-3 bg-zinc-950 border-b border-zinc-800">
+                <div className="flex items-center gap-2 text-zinc-400">
+                  <Terminal className="w-4 h-4 text-cyan-400" />
+                  <span>automated_verification_suite.sh</span>
+                </div>
+                <button
+                  onClick={copyCli}
+                  className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition-colors"
+                >
+                  {cliCopied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                  <span>{cliCopied ? "Copied" : "Copy"}</span>
+                </button>
               </div>
-              <button
-                onClick={copyCli}
-                className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition-colors"
-              >
-                {cliCopied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{cliCopied ? "Copied" : "Copy"}</span>
-              </button>
+              <pre className="p-5 text-zinc-300 overflow-x-auto leading-relaxed bg-zinc-950/90">
+                <code>{cliSnippet}</code>
+              </pre>
             </div>
-            <pre className="p-5 text-zinc-300 overflow-x-auto leading-relaxed bg-zinc-950/90">
-              <code>{cliSnippet}</code>
-            </pre>
           </div>
         )}
 

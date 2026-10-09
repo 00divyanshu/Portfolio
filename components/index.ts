@@ -5,3 +5,5 @@ export * from "./ClientServices";
 export * from "./SkillsMatrix";
 export * from "./TrustVault";
 export * from "./ContactFooter";
+export * from "./TerminalSimulator";
+export * from "./ArchitectureFlow";
