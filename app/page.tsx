@@ -2,7 +2,7 @@ import React from "react";
 import { 
   Hero, 
   FlagshipProject, 
-  Services, 
+  ClientServices, 
   SkillsMatrix, 
   TrustVault, 
   ContactFooter 
@@ -51,7 +51,7 @@ export default function Home() {
       {/* Page Sections */}
       <Hero />
       <FlagshipProject />
-      <Services />
+      <ClientServices />
       <SkillsMatrix />
       <TrustVault />
       <ContactFooter />
