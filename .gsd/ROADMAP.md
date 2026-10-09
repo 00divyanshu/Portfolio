@@ -6,7 +6,7 @@ updated: 2026-10-09T17:22:00Z
 
 # Roadmap — Divyansh Sharma Portfolio
 
-> **Current Phase:** Phase 3 - Interactive Demos, Architecture Visualizer & Terminal Widget
+> **Current Phase:** Phase 4 - Conversion Workflows & Contact Layer
 > **Status:** 🔄 Planning Complete (Ready for Execution)
 
 ## Must-Haves (from SPEC)
@@ -57,13 +57,13 @@ updated: 2026-10-09T17:22:00Z
 ---
 
 ### Phase 4: Conversion Workflows & Contact Layer
-**Status:** ⬜ Not Started
+**Status:** 🔄 Planning Complete
 **Objective:** Implement conversion mechanics: Calendly modal, direct inquiry form with validation, and contact triggers.
 **Depends on:** Phase 3
 
 **Plans:**
-- [ ] Plan 4.1: Direct Inquiry Form & Calendly booking integration
-- [ ] Plan 4.2: SEO, OpenGraph metadata, and accessibility validation
+- [ ] Plan 4.1: Direct Inquiry API & Calendly Integration (`app/api/contact/route.ts`, `CalendlyModal.tsx`)
+- [ ] Plan 4.2: SEO, OpenGraph Metadata & Layout Assembly (`app/layout.tsx`)
 
 ---
 
