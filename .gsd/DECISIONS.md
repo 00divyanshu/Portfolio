@@ -70,3 +70,21 @@ Phase 4 handles the direct conversion channels: receiving client inquiries and b
 
 ### Rationale
 An in-page modal keeps high-intent leads on the portfolio without tab bouncing. An API route ensures enterprise-grade validation and reliable message delivery.
+
+---
+
+## [DECISION-005] Phase 5 Polish & Deployment — Vercel Architecture & Complete Build Configs
+
+**Date**: 2026-10-09
+**Status**: Accepted
+
+### Context
+Phase 5 requires finalizing the portfolio for production release, ensuring mobile responsiveness, and providing deployment scaffolding.
+
+### Decision
+1. **Target Hosting**: Option A (Vercel) — Leverage native Next.js 14 App Router serverless execution for `/api/contact` and edge CDN asset distribution.
+2. **Project Scaffolding**: Provide complete `package.json`, `tsconfig.json`, `tailwind.config.js`, `postcss.config.js`, and `next.config.js` to ensure 100% turnkey clone-and-deploy readiness.
+3. **Responsive Polish**: Ensure touch-friendly interactive terminal behavior and minimal dark-theme scrollbars.
+
+### Rationale
+Vercel is the industry benchmark for Next.js deployments, providing frictionless 1-click CI/CD from GitHub with zero backend maintenance.
