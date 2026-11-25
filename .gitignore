@@ -1,0 +1,46 @@
+# Environment & Secrets
+.env
+.env.*
+*.pem
+*.key
+secrets.toml
+.streamlit/secrets.toml
+
+# Python & Streamlit
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.ruff_cache/
+
+# Node / Build Outputs
+node_modules/
+.next/
+dist/
+build/
+out/
+
+# OS & Logs
+.DS_Store
+Thumbs.db
+*.log
+
+# AI Tooling & Editor Caches
+.cursor/
+.cursorrules
+.windsurf/
+.claude/
+.aider*
+.antigravity/
+.gemini/
+.agent/
+.agents/
+.gsd/
+.vscode/
+.idea/
