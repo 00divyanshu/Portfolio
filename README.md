@@ -1,6 +1,5 @@
 # Divyansh Sharma — AI & Data Engineering Portfolio
 
-[![Streamlit App](https://img.shields.io/badge/Streamlit-Live%20Portfolio%20(Deploy%20URL)-E85D3F?style=for-the-badge&logo=streamlit&logoColor=white)](https://share.streamlit.io/)
 [![HTML5](https://img.shields.io/badge/HTML5-Editorial%20UI-0F3D3E?style=for-the-badge&logo=html5&logoColor=white)](#)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-Swiss%20Minimalism-3D5A5B?style=for-the-badge&logo=tailwindcss&logoColor=white)](#)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-0F3D3E?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)

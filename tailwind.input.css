@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-terracotta,
+.hover\:text-terracotta:hover,
+.group:hover .group-hover\:text-terracotta {
+	@apply text-coral;
+}

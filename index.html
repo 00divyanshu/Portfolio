@@ -11,47 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;450;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Tailwind CSS CDN with Custom Editorial Color System -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            alabaster: '#FAF7F0',
-            sand: '#F2ECE1',
-            'sand-light': '#F6F2E9',
-            borderWarm: '#E2DBD0',
-            'borderWarm-subtle': '#EBE5DC',
-            ink: '#0F3D3E',
-            taupe: '#3D5A5B',
-            terracotta: '#E85D3F',
-            'terracotta-hover': '#D1492C',
-            amberBurnt: '#E85D3F',
-            sage: '#0F3D3E',
-            'sage-bg': '#E6F0EF',
-            'terracotta-bg': '#FDF0EC',
-            'amber-bg': '#FDF4EC',
-          },
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-            serif: ['"Newsreader"', 'Georgia', 'serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
-          },
-          letterSpacing: {
-            tighter: '-0.04em',
-            tight: '-0.025em',
-          },
-          boxShadow: {
-            'card-subtle': '0 1px 3px rgba(15, 61, 62, 0.04), 0 4px 12px -2px rgba(15, 61, 62, 0.05)',
-            'card-hover': '0 12px 32px -8px rgba(15, 61, 62, 0.10), 0 2px 6px rgba(15, 61, 62, 0.04)',
-            'button-warm': '0 2px 8px -1px rgba(232, 93, 63, 0.28)',
-          }
-        },
-      },
-    };
-  </script>
+  <link rel="stylesheet" href="styles.css" />
 
   <style>
     ::selection {
@@ -159,11 +119,15 @@
 
     /* Scroll reveal micro-interaction inspired by melon.studio */
     .reveal-item {
-      opacity: 0;
-      transform: translateY(24px);
+      opacity: 1;
+      transform: none;
       transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
                   transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
       will-change: opacity, transform;
+    }
+    .js-reveal .reveal-item:not(.is-revealed) {
+      opacity: 0;
+      transform: translateY(24px);
     }
     .reveal-item.is-revealed {
       opacity: 1;
@@ -186,7 +150,7 @@
     }
   </style>
 </head>
-<body class="bg-alabaster text-ink font-sans antialiased selection:bg-[#F9D9D0] selection:text-ink min-h-screen flex flex-col paper-texture">
+<body id="top" class="bg-alabaster text-ink font-sans antialiased selection:bg-[#F9D9D0] selection:text-ink min-h-screen flex flex-col paper-texture">
 
   <!-- ==================== TOP NAVIGATION ==================== -->
   <header class="sticky top-0 z-40 backdrop-blur-md bg-alabaster/85 border-b border-borderWarm transition-colors">
@@ -212,7 +176,7 @@
           href="#contact" 
           class="btn-tactile hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-sand border border-borderWarm hover:border-terracotta text-xs font-mono font-medium text-ink hover:text-terracotta transition-all shadow-sm"
         >
-          <span>Get in Touch</span>
+            <span>Contact Us</span>
           <svg class="w-3 h-3 text-terracotta group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
@@ -222,6 +186,8 @@
         <button 
           id="mobile-menu-btn"
           aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
           class="md:hidden p-2 rounded-lg border border-borderWarm text-taupe hover:text-ink hover:bg-sand transition-colors"
         >
           <svg id="menu-icon-open" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -250,7 +216,7 @@
       
       <!-- Sub-label / Current Context -->
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sand border border-borderWarm text-xs font-mono text-taupe mb-8">
-        <span class="w-2 h-2 rounded-full bg-sage animate-pulse"></span>
+        <span class="w-2 h-2 rounded-full bg-sage"></span>
         <span class="text-ink font-medium">BCA Candidate &amp; AI Systems Builder</span>
         <span class="text-borderWarm">|</span>
         <span class="hidden sm:inline">Solan, Himachal Pradesh</span>
@@ -270,7 +236,7 @@
       <div class="mt-10 flex flex-wrap items-center gap-3.5">
         <a 
           href="#projects" 
-          class="btn-tactile px-5 py-2.5 rounded-full bg-terracotta hover:bg-terracotta-hover text-white font-mono text-xs uppercase tracking-wider transition-all duration-200 inline-flex items-center gap-2 shadow-button-warm"
+          class="btn-tactile px-5 py-2.5 rounded-full bg-coral hover:bg-coral-hover text-white font-mono text-xs uppercase tracking-wider transition-all duration-200 inline-flex items-center gap-2 shadow-button-warm"
         >
           <span>Explore Featured Work</span>
           <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
@@ -354,7 +320,7 @@
                   class="pointer-events-none absolute -top-9 left-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ink text-alabaster text-[11px] font-mono font-medium shadow-lg opacity-0 translate-y-1 group-hover/title:opacity-100 group-hover/title:translate-y-0 transition-all duration-200 whitespace-nowrap z-20"
                   aria-hidden="true"
                 >
-                  <span class="w-1.5 h-1.5 rounded-full bg-terracotta animate-pulse"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span>
                   <span>Launch Live App ↗</span>
                 </span>
               </a>
@@ -367,9 +333,9 @@
               href="https://00divyanshu-rag-pipeline--app-dmgh2v.streamlit.app/"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn-tactile inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-terracotta hover:bg-terracotta-hover text-white text-xs font-mono font-medium transition-all shadow-button-warm"
+              class="btn-tactile inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-coral hover:bg-coral-hover text-white text-xs font-mono font-medium transition-all shadow-button-warm"
             >
-              <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
               <span>Launch Live App ↗</span>
             </a>
 
@@ -409,7 +375,7 @@
               </div>
               <div class="flex items-center gap-2 text-[11px]">
                 <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-sage-bg text-sage font-medium">
-                  <span class="w-1.5 h-1.5 rounded-full bg-terracotta animate-pulse"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span>
                   LPU Online ~300 tok/s
                 </span>
                 <span class="hidden sm:inline-block px-2 py-0.5 rounded-md bg-sand text-ink text-[10px]">
@@ -459,7 +425,7 @@
                   </div>
                   <div class="text-[11px] text-ink leading-relaxed p-2 rounded bg-alabaster border border-borderWarm/40">
                     <span class="text-sage font-semibold">Assistant:</span> Queries are strictly scoped to <code class="text-terracotta bg-sand px-1 rounded text-[10px]">user_alice</code> partition with sliding-window limiter (10 req/min) active.
-                    <span class="inline-block w-1.5 h-3 bg-terracotta ml-0.5 animate-pulse align-middle"></span>
+                    <span class="inline-block w-1.5 h-3 bg-terracotta ml-0.5 align-middle"></span>
                   </div>
                 </div>
                 <div class="flex items-center justify-between text-[10px] text-taupe pt-1 border-t border-borderWarm-subtle">
@@ -519,6 +485,8 @@
 
           <button 
             id="toggle-rag-spec"
+            aria-expanded="false"
+            aria-controls="rag-spec-panel"
             class="text-xs font-mono text-terracotta hover:text-terracotta-hover inline-flex items-center gap-1 font-medium cursor-pointer"
           >
             <span id="rag-spec-btn-text">View Security CLI Spec</span>
@@ -572,7 +540,7 @@
                   class="pointer-events-none absolute -top-9 left-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ink text-alabaster text-[11px] font-mono font-medium shadow-lg opacity-0 translate-y-1 group-hover/title:opacity-100 group-hover/title:translate-y-0 transition-all duration-200 whitespace-nowrap z-20"
                   aria-hidden="true"
                 >
-                  <span class="w-1.5 h-1.5 rounded-full bg-terracotta animate-pulse"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-terracotta"></span>
                   <span>Launch Live App ↗</span>
                 </span>
               </a>
@@ -585,9 +553,9 @@
               href="https://00divyanshu-system-capacity-care-load-a-appstreamlit-app-5fmusb.streamlit.app/"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn-tactile inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-terracotta hover:bg-terracotta-hover text-white text-xs font-mono font-medium transition-all shadow-button-warm"
+              class="btn-tactile inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-coral hover:bg-coral-hover text-white text-xs font-mono font-medium transition-all shadow-button-warm"
             >
-              <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
               <span>Launch Live App ↗</span>
             </a>
 
@@ -627,7 +595,7 @@
               </div>
               <div class="flex items-center gap-2 text-[11px]">
                 <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-bg text-amberBurnt font-medium">
-                  <span class="w-1.5 h-1.5 rounded-full bg-amberBurnt animate-pulse"></span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-amberBurnt"></span>
                   Facility State: Strained
                 </span>
                 <span class="hidden sm:inline-block px-2 py-0.5 rounded-md bg-sand text-ink text-[10px]">
@@ -669,7 +637,7 @@
                 </div>
                 <!-- SVG Visualization of Trajectory & Baseline -->
                 <div class="w-full h-20 bg-alabaster rounded border border-borderWarm/50 p-1.5 relative flex items-center">
-                  <svg class="w-full h-full overflow-visible" viewBox="0 0 280 60" fill="none">
+                  <svg class="w-full h-full overflow-visible" viewBox="0 0 280 60" fill="none" role="img" aria-label="Both forecast trends rise overall; XGBoost ends higher than Prophet.">
                     <!-- Confidence Envelope -->
                     <path d="M 0 35 Q 70 30, 140 25 T 280 15 L 280 40 Q 210 48, 140 42 T 0 35 Z" fill="#E6F0EF" opacity="0.8"></path>
                     <!-- Historical Baseline -->
@@ -921,7 +889,7 @@
               Undergraduate Degree
             </span>
             <span class="inline-flex items-center gap-1.5 text-[11px] font-mono text-sage font-medium">
-              <span class="w-1.5 h-1.5 rounded-full bg-sage animate-pulse"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
               Currently Pursuing
             </span>
           </div>
@@ -1055,10 +1023,10 @@
   <section id="contact" class="py-24 md:py-32 border-b border-borderWarm bg-sand-light reveal-item">
     <div class="max-w-5xl mx-auto px-5 sm:px-8">
       
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div class="max-w-3xl mx-auto">
         
         <!-- Contact Information & Quick Actions -->
-        <div class="lg:col-span-5 space-y-6">
+        <div class="space-y-6">
           <div class="inline-flex items-center gap-2 text-terracotta font-mono text-xs uppercase tracking-wider font-semibold">
             <span>05</span>
             <span class="text-borderWarm">/</span>
@@ -1096,7 +1064,7 @@
                   </span>
                 </div>
               </div>
-              <span class="px-2.5 py-1 rounded bg-sand group-hover:bg-terracotta group-hover:text-white text-taupe text-xs font-mono transition-colors">
+              <span class="px-2.5 py-1 rounded bg-sand group-hover:bg-coral group-hover:text-white text-taupe text-xs font-mono transition-colors">
                 Gmail ↗
               </span>
             </a>
@@ -1121,7 +1089,7 @@
                   </span>
                 </div>
               </div>
-              <span class="px-2.5 py-1 rounded bg-sand group-hover:bg-terracotta group-hover:text-white text-taupe text-xs font-mono transition-colors">
+              <span class="px-2.5 py-1 rounded bg-sand group-hover:bg-coral group-hover:text-white text-taupe text-xs font-mono transition-colors">
                 WhatsApp ↗
               </span>
             </a>
@@ -1145,84 +1113,6 @@
           </div>
         </div>
 
-        <!-- Direct Inquiry Form (Clean & Editorial) -->
-        <div class="lg:col-span-7">
-          <div class="bg-white rounded-2xl border border-borderWarm p-6 sm:p-9 shadow-card-subtle">
-            
-            <div class="pb-5 mb-5 border-b border-borderWarm-subtle flex items-center justify-between">
-              <span class="text-xs font-mono font-semibold uppercase tracking-wider text-ink">
-                Direct Message Note
-              </span>
-              <span class="text-[11px] font-mono text-sage font-medium">Quick 24h Response</span>
-            </div>
-
-            <form id="contact-form" class="space-y-4">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label for="form-name" class="block text-xs font-mono text-taupe mb-1.5 uppercase">Your Name</label>
-                  <input 
-                    id="form-name" 
-                    type="text" 
-                    required 
-                    placeholder="e.g. Alex Vance"
-                    class="w-full px-3.5 py-2.5 rounded-xl bg-alabaster border border-borderWarm text-sm text-ink focus:outline-none focus:border-terracotta transition-colors font-sans"
-                  />
-                </div>
-                <div>
-                  <label for="form-email" class="block text-xs font-mono text-taupe mb-1.5 uppercase">Email Address</label>
-                  <input 
-                    id="form-email" 
-                    type="email" 
-                    required 
-                    placeholder="alex@example.com"
-                    class="w-full px-3.5 py-2.5 rounded-xl bg-alabaster border border-borderWarm text-sm text-ink focus:outline-none focus:border-terracotta transition-colors font-sans"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label for="form-subject" class="block text-xs font-mono text-taupe mb-1.5 uppercase">Subject / Objective</label>
-                <select 
-                  id="form-subject"
-                  class="w-full px-3.5 py-2.5 rounded-xl bg-alabaster border border-borderWarm text-sm text-ink focus:outline-none focus:border-terracotta transition-colors font-sans"
-                >
-                  <option>RAG System / Vector Search Architecture</option>
-                  <option>Data Pipeline &amp; Capacity Forecasting</option>
-                  <option>Technical Role / Internship Opportunity</option>
-                  <option>General Engineering Collaboration</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="form-message" class="block text-xs font-mono text-taupe mb-1.5 uppercase">Message</label>
-                <textarea 
-                  id="form-message" 
-                  rows="4" 
-                  required 
-                  placeholder="Share a brief overview of your team, timeline, or engineering inquiry..."
-                  class="w-full px-3.5 py-2.5 rounded-xl bg-alabaster border border-borderWarm text-sm text-ink focus:outline-none focus:border-terracotta transition-colors font-sans resize-none"
-                ></textarea>
-              </div>
-
-              <button 
-                type="submit" 
-                id="form-submit-btn"
-                class="btn-tactile w-full py-3.5 rounded-xl bg-terracotta hover:bg-terracotta-hover text-white font-mono text-xs uppercase tracking-wider font-semibold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-button-warm group"
-              >
-                <span>Transmit Note</span>
-                <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </button>
-            </form>
-
-            <div id="form-success-banner" class="hidden mt-4 p-4 rounded-xl bg-sage-bg border border-sage/30 text-sage text-xs font-mono text-center">
-              ✓ Message received! I will review your inquiry and follow up promptly.
-            </div>
-
-          </div>
-        </div>
-
       </div>
 
     </div>
@@ -1235,7 +1125,7 @@
       <div class="flex items-center gap-4 text-[11px]">
         <span>Solan, HP, India</span>
         <span>•</span>
-        <a href="#projects" class="hover:text-ink transition-colors">Back to top ↑</a>
+        <a href="#top" class="hover:text-ink transition-colors">Back to top ↑</a>
       </div>
     </div>
   </footer>
@@ -1253,10 +1143,12 @@
         const isHidden = mobileMenu.classList.contains('hidden');
         if (isHidden) {
           mobileMenu.classList.remove('hidden');
+          mobileBtn.setAttribute('aria-expanded', 'true');
           iconOpen.classList.add('hidden');
           iconClose.classList.remove('hidden');
         } else {
           mobileMenu.classList.add('hidden');
+          mobileBtn.setAttribute('aria-expanded', 'false');
           iconOpen.classList.remove('hidden');
           iconClose.classList.add('hidden');
         }
@@ -1265,6 +1157,7 @@
       document.querySelectorAll('.mobile-link').forEach(link => {
         link.addEventListener('click', () => {
           mobileMenu.classList.add('hidden');
+          mobileBtn.setAttribute('aria-expanded', 'false');
           iconOpen.classList.remove('hidden');
           iconClose.classList.add('hidden');
         });
@@ -1282,40 +1175,41 @@
         const isClosed = ragPanel.classList.contains('hidden');
         if (isClosed) {
           ragPanel.classList.remove('hidden');
+          ragBtn.setAttribute('aria-expanded', 'true');
           ragBtnText.textContent = 'Hide Security Spec';
           ragArrow.classList.add('rotate-180');
         } else {
           ragPanel.classList.add('hidden');
+          ragBtn.setAttribute('aria-expanded', 'false');
           ragBtnText.textContent = 'View Security CLI Spec';
           ragArrow.classList.remove('rotate-180');
         }
       });
     }
 
-    // 3. Contact Form Simulated Submission
-    const contactForm = document.getElementById('contact-form');
-    const formSuccess = document.getElementById('form-success-banner');
-    const submitBtn = document.getElementById('form-submit-btn');
+    // Keep fragment links inside the embedded document when served via srcdoc.
+    if (window.self !== window.top) {
+      document.addEventListener('click', (event) => {
+        const link = event.target.closest('a[href^="#"]');
+        if (!link) return;
 
-    if (contactForm) {
-      contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<span>Transmitting...</span>';
-
-        setTimeout(() => {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = '<span>Transmit Note</span>';
-          contactForm.reset();
-          formSuccess.classList.remove('hidden');
-          setTimeout(() => {
-            formSuccess.classList.add('hidden');
-          }, 6000);
-        }, 600);
+        const fragment = link.getAttribute('href');
+        const target = fragment === '#'
+          ? null
+          : document.getElementById(decodeURIComponent(fragment.slice(1)));
+        event.preventDefault();
+        if (target) {
+          target.scrollIntoView({
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+          });
+        } else if (fragment === '#') {
+          window.scrollTo({ top: 0, behavior: 'auto' });
+        }
       });
     }
 
-    // 4. Scroll Reveal Observer (Inspired by melon.studio [0.22, 1, 0.36, 1])
+    // 4. Scroll Reveal Observer
+    document.documentElement.classList.add('js-reveal');
     const revealElements = document.querySelectorAll('.reveal-item');
     if ('IntersectionObserver' in window) {
       const revealObserver = new IntersectionObserver((entries, observer) => {

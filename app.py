@@ -1,6 +1,6 @@
+from html import escape
 from pathlib import Path
 import streamlit as st
-import streamlit.components.v1 as components
 
 st.set_page_config(
     page_title="Divyansh Sharma | Portfolio",
@@ -49,5 +49,16 @@ st.markdown(
 
 html_path = Path(__file__).parent / "index.html"
 html_content = html_path.read_text(encoding="utf-8")
+styles_path = Path(__file__).parent / "styles.css"
+styles_content = styles_path.read_text(encoding="utf-8")
+html_content = html_content.replace(
+    '<link rel="stylesheet" href="styles.css" />',
+    f"<style>{styles_content}</style>",
+)
+embedded_html = escape(html_content, quote=True)
 
-components.html(html_content, height=900, scrolling=True)
+st.markdown(
+    f'<iframe title="Divyansh Sharma portfolio" srcdoc="{embedded_html}" '
+    'style="display:block;width:100%;height:100vh;border:0" loading="eager"></iframe>',
+    unsafe_allow_html=True,
+)
